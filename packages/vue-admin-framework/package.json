@@ -1,0 +1,18 @@
+{
+  "name": "vue-admin-framework",
+  "version": "0.0.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "description": "> TODO: description",
+  "author": "erye <erye@tiiit.cn>",
+  "homepage": "https://github.com/chenhaihong/vue-admin-framework#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenhaihong/vue-admin-framework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chenhaihong/vue-admin-framework/issues"
+  }
+}

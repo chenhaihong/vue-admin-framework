@@ -1,0 +1,23 @@
+{
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "packages": ["packages/*"],
+  "version": "0.0.0",
+  "command": {
+    "create": {
+      "homepage": "https://github.com/chenhaihong/vue-admin-framework",
+      "license": "MIT",
+      "registry": "https://registry.npmjs.org/"
+    },
+    "version": {
+      "exact": true
+    },
+    "add": {
+      "exact": true
+    },
+    "publish": {
+      "ignoreChanges": ["*.md"],
+      "message": ":sparkles: chore(release): publish"
+    }
+  }
+}
