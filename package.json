@@ -5,8 +5,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "webpack --config config/webpack.config.js",
-    "start": "webpack-dev-server --config config/webpack.config.js"
+    "build:demo": "webpack --config config/demo.dev.config.js",
+    "dev:demo": "webpack-dev-server --config config/demo.dev.config.js",
+    "predev:demo": "npm run build",
+    "build": "webpack --config config/webpack.config.js --env.production"
   },
   "dependencies": {
     "@babel/core": "^7.7.4",
@@ -25,6 +27,8 @@
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
     "terser-webpack-plugin": "^2.2.1",
+    "vue-loader": "^15.7.2",
+    "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"

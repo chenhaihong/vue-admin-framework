@@ -2,41 +2,30 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-const root = resolve(__dirname, '..', 'packages/vue-admin-framework');
-const isProd = process.env.NODE_ENV === 'development';
+const root = resolve(__dirname, '..', 'packages/demo');
 
 module.exports = {
-  mode: isProd ? 'production' : 'development',
+  mode: 'development',
   entry: {
     index: resolve(root, 'src/index.js'),
   },
   output: {
-    library: 'VueAdminFrame',
-    libraryTarget: 'umd',
-    path: resolve(root, 'build'),
-    filename: `[name].umd${isProd ? '' : '.min'}.js`,
-    chunkFilename: `[name].umd${isProd ? '' : '.min'}.js`,
+    path: resolve(root, 'dist'),
+    filename: '[name].[hash:6].js',
+    chunkFilename: '[id].[hash:6].js',
   },
   plugins: [
     new webpack.ProgressPlugin(),
     // new HtmlWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: `[name]${isProd ? '' : '.min'}.css`,
-      chunkFilename: `[id]${isProd ? '' : '.min'}.css`,
+      filename: '[name].[hash:6].css',
+      chunkFilename: '[id].[hash:6].css',
       ignoreOrder: false,
     }),
-    new VueLoaderPlugin(),
   ],
   module: {
     rules: [
-      {
-        test: /\.vue$/,
-        use: ['vue-loader'],
-      },
       {
         test: /.js$/,
         include: [resolve(__dirname, 'src')],
@@ -59,7 +48,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: !isProd,
+              hmr: true,
             },
           },
           {
@@ -84,7 +73,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: !isProd,
+              hmr: true,
             },
           },
           {
@@ -106,27 +95,11 @@ module.exports = {
       },
     ],
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          priority: -10,
-          test: /[\\/]node_modules[\\/]/,
-        },
-      },
-      chunks: 'async',
-      minChunks: 1,
-      minSize: 30000,
-      name: true,
-    },
-    ...(isProd
-      ? {
-          minimize: true,
-          minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-        }
-      : {}),
+  devServer: {
+    open: true,
   },
   externals: {
+    // 'vue-admin-framework': 'VueAdminFrame',
     vue: 'Vue',
   },
 };

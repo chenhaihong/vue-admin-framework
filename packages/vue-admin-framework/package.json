@@ -1,9 +1,7 @@
 {
   "name": "vue-admin-framework",
   "version": "0.0.0",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
+  "main": "build/index.umd.min.js",
   "description": "> TODO: description",
   "author": "erye <erye@tiiit.cn>",
   "homepage": "https://github.com/chenhaihong/vue-admin-framework#readme",
@@ -14,5 +12,8 @@
   },
   "bugs": {
     "url": "https://github.com/chenhaihong/vue-admin-framework/issues"
+  },
+  "peerDependencies": {
+    "vue": "2.6.10"
   }
 }
