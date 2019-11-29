@@ -1,3 +1,4 @@
-import framework from 'vue-admin-framework';
+import 'vue-admin-framework/build/index.css';
+import './index.less';
 
-console.log(framework);
+import framework from 'vue-admin-framework';

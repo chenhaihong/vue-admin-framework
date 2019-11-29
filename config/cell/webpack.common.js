@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = function(isProd = true) {
   return {
     mode: isProd ? 'production' : 'development',
-    devtool: isProd ? false : 'eval-source-map',
+    devtool: isProd ? false : 'source-map',
     plugins: [
       new webpack.ProgressPlugin(),
       // new CleanWebpackPlugin()

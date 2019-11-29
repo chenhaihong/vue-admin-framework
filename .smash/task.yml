@@ -1,32 +1,33 @@
 # demo包相关任务
-dev:
+clean:demo:
+  - name: smash-middleware-clean
+    dirs:
+      - ./packages/demo/build
+dev:demo:
   - name: smash-middleware-shell
     commands:
-      - smash run build
-      - npx webpack-dev-server --config config/webpack.demo.js
-
+      - smash run clean:demo
+      - npx webpack-dev-server --config config/webpack.demo.js --env.production=false
 build:demo:
   - name: smash-middleware-shell
     commands:
-      # - smash run build
+      - smash run build:vaf
+      - smash run clean:demo
       - npx webpack --config config/webpack.demo.js --env.production
 
 # vue-admin-framework包相关任务
-build:vaf:
-  - name: smash-middleware-shell
-    commands:
-      -
-      - smash run build:vaf:production
-      - smash run build:vaf:development
-build:vaf:production:
-  - name: smash-middleware-shell
-    commands:
-      - npx webpack --config config/webpack.vaf.js --env.production
-build:vaf:development:
-  - name: smash-middleware-shell
-    commands:
-      - npx webpack --config config/webpack.vaf.js --env.production=false
 clean:vaf:
   - name: smash-middleware-clean
     dirs:
       - ./packages/vue-admin-framework/build
+watch:vaf:
+  - name: smash-middleware-shell
+    commands:
+      - smash run clean:vaf
+      - npx webpack --config config/webpack.vaf.js --env.production=false --watch
+build:vaf:
+  - name: smash-middleware-shell
+    commands:
+      - smash run clean:vaf
+      - npx webpack --config config/webpack.vaf.js --env.production=false
+      - npx webpack --config config/webpack.vaf.js --env.production
