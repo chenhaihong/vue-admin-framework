@@ -4,17 +4,13 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {
-    "build:demo": "webpack --config config/demo.dev.config.js",
-    "dev:demo": "webpack-dev-server --config config/demo.dev.config.js",
-    "predev:demo": "npm run build",
-    "build": "webpack --config config/webpack.config.js --env.production"
-  },
   "dependencies": {
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "autoprefixer": "^9.7.2",
     "babel-loader": "^8.0.6",
+    "camelcase": "^5.3.1",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.1.0",
@@ -31,7 +27,8 @@
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   },
   "version": "1.0.0",
   "description": "My webpack project"
