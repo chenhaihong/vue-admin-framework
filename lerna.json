@@ -19,5 +19,14 @@
       "ignoreChanges": ["*.md"],
       "message": ":sparkles: chore(release): publish"
     }
+  },
+  "changelog": {
+    "repo": "chenhaihong/vue-admin-framework",
+    "labels": {
+      "enhancement": ":rocket: Enhancement",
+      "bug": ":bug: Bug Fix",
+      "doc": ":pencil: Refine Doc",
+      "feat": ":sparkles: New Feature"
+    }
   }
 }
