@@ -1,8 +1,8 @@
-const routeConfig = [
+const routes = [
   { path: '/', component: () => import('../pages/index.vue') },
   {
     path: '/list',
-    // component 这个字段需要的Layout由vaf填充，这里会填充上FirstFloorLayout
+    // component 这里会填充上FirstFloorLayout
     children: [
       {
         path: 'index',
@@ -10,6 +10,7 @@ const routeConfig = [
       },
       {
         path: 'detail',
+        // component 这里会填充上SecondFloorLayout
         children: [
           {
             path: '1',
@@ -25,4 +26,10 @@ const routeConfig = [
   },
 ];
 
-export default routeConfig;
+const beforeEach = (to, from, next) => {
+  next();
+};
+
+const afterEach = (to, from) => {};
+
+export default { routes, beforeEach, afterEach };

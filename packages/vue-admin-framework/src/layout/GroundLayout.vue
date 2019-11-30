@@ -7,8 +7,5 @@
 <script>
 export default {
   name: 'GroundLayout',
-  data() {
-    return {};
-  },
 };
 </script>
