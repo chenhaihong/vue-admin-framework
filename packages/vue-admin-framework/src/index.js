@@ -1,11 +1,15 @@
-import './index.css';
 import './index.less';
 
 import Vue from 'vue';
-
-console.log('hello world');
-console.log(Vue);
+import routerGenerator from './router';
+import GroundLayout from './layout/GroundLayout.vue';
 
 export default {
-  a: 1,
+  render: function({ el, routeConfig }) {
+    return new Vue({
+      el,
+      router: routerGenerator(routeConfig),
+      render: (h) => h(GroundLayout),
+    });
+  },
 };

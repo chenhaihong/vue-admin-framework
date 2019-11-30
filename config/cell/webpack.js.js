@@ -10,7 +10,7 @@ module.exports = function() {
           include: [resolve(__dirname, 'src')],
           loader: 'babel-loader',
           options: {
-            // plugins: ['syntax-dynamic-import'],
+            plugins: ['@babel/plugin-syntax-dynamic-import'],
             presets: [
               [
                 '@babel/preset-env',
