@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="vaf-app">
     <router-view />
   </div>
 </template>
@@ -9,3 +9,16 @@ export default {
   name: 'GroundLayout',
 };
 </script>
+
+<style lang="less">
+html,
+body {
+  height: 100%;
+}
+</style>
+
+<style lang="less" scoped>
+#vaf-app {
+  height: 100%;
+}
+</style>

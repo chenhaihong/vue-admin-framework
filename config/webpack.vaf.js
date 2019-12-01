@@ -29,5 +29,11 @@ module.exports = function(env, argv) {
     externals: {
       vue: 'Vue',
     },
+    resolve: {
+      extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.vue', '.less', '*'],
+      alias: {
+        '@': resolve(root, 'src'),
+      },
+    },
   });
 };

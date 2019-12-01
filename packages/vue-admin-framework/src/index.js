@@ -1,4 +1,5 @@
-import './index.less';
+import 'normalize.css';
+import './style/index.less';
 
 import Vue from 'vue';
 import routerGenerator from './router';

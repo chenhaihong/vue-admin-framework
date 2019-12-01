@@ -1,7 +1,10 @@
 const routes = [
-  { path: '/', component: () => import('../pages/index.vue') },
+  { path: '/', redirect: '/list/index' },
+  { path: '/home', component: () => import('../pages/index.vue') },
+  { path: '/login', component: () => import('../pages/login.vue') },
   {
     path: '/list',
+    redirect: '/list/index',
     // component 这里会填充上FirstFloorLayout
     children: [
       {
@@ -10,6 +13,7 @@ const routes = [
       },
       {
         path: 'detail',
+        redirect: '/list/detail/1',
         // component 这里会填充上SecondFloorLayout
         children: [
           {
