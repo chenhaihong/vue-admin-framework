@@ -1,12 +1,17 @@
 <template>
   <div class="sidebar">
-    <div class="sidebar__left"></div>
+    <div class="sidebar__left">
+      <Logo />
+    </div>
     <div class="sidebar__right"></div>
   </div>
 </template>
 
 <script>
+import Logo from './Logo';
+
 export default {
+  components: { Logo },
   name: 'SideBar',
   data() {
     return {};

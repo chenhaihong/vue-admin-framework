@@ -18,6 +18,7 @@ module.exports = function() {
                   modules: false,
                 },
               ],
+              '@vue/babel-preset-jsx',
             ],
           },
         },
