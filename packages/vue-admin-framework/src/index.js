@@ -5,7 +5,9 @@ import Vue from 'vue';
 import routerGenerator from './router';
 import GroundLayout from './layout/GroundLayout.vue';
 
-export default {
+console.log(123);
+
+const a = {
   render: function({ el, routeConfig }) {
     return new Vue({
       el,
@@ -14,3 +16,5 @@ export default {
     });
   },
 };
+
+export default a;
