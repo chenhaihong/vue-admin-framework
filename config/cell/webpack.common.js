@@ -23,5 +23,19 @@ module.exports = function(isProd = true) {
         name: true,
       },
     },
+    stats: 'minimal',
+    stats: {
+      // copied from `'minimal'`
+      // all: false,
+      modules: true,
+      maxModules: 0,
+      errors: true,
+      warnings: true,
+      // our additional options
+      entrypoints: true,
+      children: false,
+      moduleTrace: true,
+      errorDetails: true,
+    },
   };
 };

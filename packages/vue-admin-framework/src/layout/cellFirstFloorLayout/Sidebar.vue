@@ -3,15 +3,18 @@
     <div class="sidebar__left">
       <Logo />
     </div>
-    <div class="sidebar__right"></div>
+    <div class="sidebar__right">
+      <SubMenuTree />
+    </div>
   </div>
 </template>
 
 <script>
 import Logo from './Logo';
+import SubMenuTree from './SubMenuTree';
 
 export default {
-  components: { Logo },
+  components: { Logo, SubMenuTree },
   name: 'SideBar',
   data() {
     return {};

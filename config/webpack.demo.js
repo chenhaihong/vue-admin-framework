@@ -32,6 +32,10 @@ module.exports = function(env, argv) {
     ],
     devServer: {
       open: true,
+      overlay: {
+        warnings: true,
+        errors: true,
+      },
     },
     externals: {
       // 'vue-admin-framework': 'VueAdminFramework',

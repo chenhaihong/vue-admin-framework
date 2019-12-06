@@ -4,21 +4,16 @@ export default {
   data() {
     return {};
   },
-  render() {
-    return <div>Logo</div>;
+  render(h) {
+    return <div class='logo'>Logo</div>;
   },
 };
 </script>
 
 <style lang="less" scoped>
 @import '~@/style/variables';
-.main {
-  padding-top: @navbarHeight;
-  min-height: 100vh;
-
-  .main-content {
-    position: relative;
-    padding: 24px;
-  }
+.logo {
+  height: @navbarHeight;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 </style>

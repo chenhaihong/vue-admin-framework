@@ -3,11 +3,9 @@ import './style/index.less';
 
 import Vue from 'vue';
 import routerGenerator from './router';
-import GroundLayout from './layout/GroundLayout.vue';
+import GroundLayout from './layout/GroundLayout';
 
-console.log(123);
-
-const a = {
+export default {
   render: function({ el, routeConfig }) {
     return new Vue({
       el,
@@ -16,5 +14,3 @@ const a = {
     });
   },
 };
-
-export default a;
