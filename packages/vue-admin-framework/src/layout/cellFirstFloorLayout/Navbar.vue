@@ -1,12 +1,17 @@
 <template>
-  <div class="navbar"></div>
+  <div class="navbar">
+    <!-- <NavBarRight /> -->
+    <component :is="NavBarRight"></component>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'NavBar',
   data() {
-    return {};
+    return {
+      NavBarRight: 'NavBarRight',
+    };
   },
 };
 </script>
