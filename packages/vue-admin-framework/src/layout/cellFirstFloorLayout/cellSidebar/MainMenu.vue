@@ -1,6 +1,8 @@
 <template>
   <div class="main-menu">
-    <div class="main-menu-item"></div>
+    <!-- <el-scrollbar wrap-class="scrollbar-wrapper">
+      <div class="main-menu-item"></div>
+    </el-scrollbar> -->
   </div>
 </template>
 
@@ -25,11 +27,8 @@ export default {
 .main-menu /deep/ {
   margin: 0;
   padding: 8px 0;
-  height: calc(100vh - @navbarHeight);
-  overflow-y: auto;
 }
 
 .main-menu-item /deep/ {
-  height: 9000px;
 }
 </style>

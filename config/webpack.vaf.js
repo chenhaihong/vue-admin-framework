@@ -29,6 +29,7 @@ module.exports = function(env, argv) {
     },
     externals: {
       vue: 'Vue',
+      'element-ui': 'ELEMENT',
     },
     resolve: {
       extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.vue', '.less', '*'],

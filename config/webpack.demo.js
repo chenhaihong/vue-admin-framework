@@ -43,5 +43,11 @@ module.exports = function(env, argv) {
       vue: 'Vue',
       'element-ui': 'ELEMENT',
     },
+    resolve: {
+      extensions: ['.js', '.json', '.vue', '.less', '*'],
+      alias: {
+        '@': resolve(root, 'src'),
+      },
+    },
   });
 };
