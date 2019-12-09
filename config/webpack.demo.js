@@ -39,12 +39,12 @@ module.exports = function(env, argv) {
       },
     },
     externals: {
-      // 'vue-admin-framework': 'VueAdminFramework',
       vue: 'Vue',
       'element-ui': 'ELEMENT',
+      // 'vue-admin-framework': 'VueAdminFramework',
     },
     resolve: {
-      extensions: ['.js', '.json', '.vue', '.less', '*'],
+      extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.vue', '.less', '*'],
       alias: {
         '@': resolve(root, 'src'),
       },

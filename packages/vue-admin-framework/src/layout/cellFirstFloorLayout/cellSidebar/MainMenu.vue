@@ -1,8 +1,8 @@
 <template>
   <div class="main-menu">
-    <!-- <el-scrollbar wrap-class="scrollbar-wrapper">
+    <el-scrollbar wrap-class="scrollbar-wrapper">
       <div class="main-menu-item"></div>
-    </el-scrollbar> -->
+    </el-scrollbar>
   </div>
 </template>
 

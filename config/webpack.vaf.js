@@ -28,8 +28,30 @@ module.exports = function(env, argv) {
       chunkFilename: `[name].umd${isProd ? '.min' : ''}.js`,
     },
     externals: {
-      vue: 'Vue',
-      'element-ui': 'ELEMENT',
+      vue: {
+        commonjs: 'vue',
+        commonjs2: 'vue',
+        amd: 'vue',
+        root: 'Vue',
+      },
+      vuex: {
+        commonjs: 'vuex',
+        commonjs2: 'vuex',
+        amd: 'vuex',
+        root: 'Vuex',
+      },
+      'vue-router': {
+        commonjs: 'vue-router',
+        commonjs2: 'vue-router',
+        amd: 'vue-router',
+        root: 'VueRouter',
+      },
+      'element-ui': {
+        commonjs: 'element-ui',
+        commonjs2: 'element-ui',
+        amd: 'element-ui',
+        root: 'ELEMENT',
+      },
     },
     resolve: {
       extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.vue', '.less', '*'],
