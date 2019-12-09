@@ -2,6 +2,7 @@
   <div class="sidebar">
     <div class="sidebar__left">
       <Logo />
+      <MainMenu />
     </div>
     <div class="sidebar__right">
       <SubMenuTree />
@@ -10,11 +11,13 @@
 </template>
 
 <script>
-import Logo from './Logo';
-import SubMenuTree from './SubMenuTree';
+import Logo from './cellSidebar/Logo';
+import MainMenu from './cellSidebar/MainMenu';
+import SubMenuTop from './cellSidebar/SubMenuTop';
+import SubMenuTree from './cellSidebar/SubMenuTree';
 
 export default {
-  components: { Logo, SubMenuTree },
+  components: { Logo, MainMenu, SubMenuTop, SubMenuTree },
   name: 'SideBar',
   data() {
     return {};

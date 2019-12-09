@@ -4,9 +4,10 @@ const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const common = require('./cell/webpack.common');
-const html = require('./cell/webpack.html.js');
+const html = require('./cell/webpack.html');
 const js = require('./cell/webpack.js.js');
 const style = require('./cell/webpack.style');
+const file = require('./cell/webpack.file');
 const vue = require('./cell/webpack.vue');
 const minify = require('./cell/webpack.minify');
 
@@ -14,7 +15,7 @@ const root = resolve(__dirname, '..', 'packages/demo');
 
 module.exports = function(env, argv) {
   const isProd = env.production === true;
-  return merge(common(isProd), style(isProd), html(), js(), vue(), isProd ? minify() : {}, {
+  return merge(common(isProd), style(isProd), html(), js(), file(), vue(), isProd ? minify() : {}, {
     entry: {
       index: resolve(root, 'src/index.js'),
     },
@@ -40,6 +41,7 @@ module.exports = function(env, argv) {
     externals: {
       // 'vue-admin-framework': 'VueAdminFramework',
       vue: 'Vue',
+      'element-ui': 'ELEMENT',
     },
   });
 };
