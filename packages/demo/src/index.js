@@ -3,7 +3,7 @@ import './index.less';
 import 'vue-admin-framework/build/index.css';
 
 import Vue from 'vue';
-import vaf from 'vue-admin-framework';
+import vaf from 'vue-admin-framework/build/index.umd';
 import ELEMENT from 'element-ui';
 import routeConfig from './router';
 import storeConfig from './store';

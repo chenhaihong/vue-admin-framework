@@ -17,11 +17,7 @@ const routes = [
         // component 这里会填充上SecondFloorLayout
         children: [
           {
-            path: '1',
-            component: () => import('../pages/list/detail.vue'),
-          },
-          {
-            path: '2',
+            path: ':id',
             component: () => import('../pages/list/detail.vue'),
           },
         ],

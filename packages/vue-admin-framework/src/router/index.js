@@ -3,29 +3,30 @@ import Router from 'vue-router';
 import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'; // progress bar style
 
-import FirstFloorLayout from '../layout/FirstFloorLayout.vue';
-import SecondFloorLayout from '../layout/SecondFloorLayout.vue';
+import FirstFloorLayout from '@/layout/FirstFloorLayout.vue';
+import SecondFloorLayout from '@/layout/SecondFloorLayout.vue';
 
 Vue.use(Router);
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
-let router;
+let _router, _routeConfig;
 
-export default function routerGenerator({ routes = [], ...others }) {
+export function makeRouter({ routes = [], mode = 'hash', ...navigationGuards }) {
   attachLayouts(routes);
-  router = new Router({
-    // mode: 'history', // require service support
+  _routeConfig = {
+    mode, // 'history' mode requires browser service support.
     routes,
-  });
-  attachGlobalNavigationGuards(router, others);
-  return router;
+  };
+  _router = new Router(_routeConfig);
+  attachGlobalNavigationGuards(_router, navigationGuards);
+  return _router;
 }
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
 export function resetRouter() {
-  if (router) {
-    const newRouter = createRouter();
-    router.matcher = newRouter.matcher; // reset router
+  if (_router) {
+    const newRouter = new Router(_routeConfig);
+    _router.matcher = newRouter.matcher; // reset router
   }
 }
 
@@ -50,13 +51,13 @@ function attachLayouts(routeConfig, floor = 1) {
 }
 
 // 加上router的全局导航守卫
-function attachGlobalNavigationGuards(router, others) {
+function attachGlobalNavigationGuards(router, guards) {
   router.beforeEach(async (to, from, next) => {
     // start progress bar
     NProgress.start();
 
-    if (others.beforeEach) {
-      others.beforeEach(to, from, next);
+    if (guards.beforeEach) {
+      guards.beforeEach(to, from, next);
     } else {
       next();
     }
@@ -65,14 +66,14 @@ function attachGlobalNavigationGuards(router, others) {
     // finish progress bar
     NProgress.done();
 
-    if (others.afterEach) {
-      others.afterEach(to, from);
+    if (guards.afterEach) {
+      guards.afterEach(to, from);
     }
   });
 
   const list = ['beforeResolve', 'onReady', 'onError'];
   list.forEach((item) => {
-    const func = others[item];
+    const func = guards[item];
     if (func) {
       router[item](func);
     }

@@ -14,6 +14,15 @@
       page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved
       over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
     </p>
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
+        <span>卡片名称</span>
+        <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+      </div>
+      <div v-for="o in 4" :key="o" class="text item">
+        {{ '列表内容 ' + o }}
+      </div>
+    </el-card>
   </div>
 </template>
 

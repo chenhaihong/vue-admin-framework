@@ -1,7 +1,7 @@
 import './style/index.less';
 
 import Vue from 'vue';
-import routerGenerator from './router';
+import { makeRouter } from './router';
 import GroundLayout from './layout/GroundLayout';
 
 import globalData from './helper/globalData';
@@ -16,7 +16,7 @@ export default {
 
     return new Vue({
       el,
-      router: routerGenerator(routeConfig),
+      router: makeRouter(routeConfig),
       // store,
       render: (h) => h(GroundLayout),
     });
