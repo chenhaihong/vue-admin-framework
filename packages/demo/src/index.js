@@ -16,9 +16,9 @@ Vue.use(ELEMENT);
 vaf.render({
   el: '#app',
   routeConfig,
-  storeConfig,
+  // storeConfig,
   slots: {
-    // navBarRight: NavbarRight,
-    navBarRight: () => import('./components/NavbarRight.vue'),
+    // NavBarRight: import('./components/NavbarRight.vue'),
+    NavBarRight: () => import('./components/NavbarRight.vue'),
   },
 });

@@ -30,6 +30,10 @@ export function resetRouter() {
   }
 }
 
+export function getRouter() {
+  return _router;
+}
+
 // 为了方便外部使用，第一层、第二层的添加layout的逻辑统一由内部处理，
 // (item.children && 第一层) ==> 加上 FirstFloorLayout
 // (item.children && 第二层) ==> 加上 SecondFloorLayout

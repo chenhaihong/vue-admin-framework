@@ -1,6 +1,5 @@
 <template>
   <div class="navbar">
-    <!-- <NavBarRight /> -->
     <component :is="NavBarRight"></component>
   </div>
 </template>
