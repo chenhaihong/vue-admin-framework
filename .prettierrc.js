@@ -3,11 +3,11 @@ module.exports = {
   printWidth: 180,
   tabWidth: 2,
   useTabs: false,
-  semi: true,
+  semi: false,
   singleQuote: true,
   quoteProps: 'as-needed',
   jsxSingleQuote: true,
-  trailingComma: 'es5',
+  trailingComma: 'none',
   bracketSpacing: true,
   jsxBracketSameLine: false,
   arrowParens: 'always',
@@ -15,5 +15,5 @@ module.exports = {
   insertPragma: false,
   proseWrap: 'always',
   htmlWhitespaceSensitivity: 'css',
-  endOfLine: 'auto',
-};
+  endOfLine: 'auto'
+}

@@ -11,18 +11,17 @@
 </template>
 
 <script>
-import Logo from './cellSidebar/Logo';
-import MainMenu from './cellSidebar/MainMenu';
-import SubMenuTop from './cellSidebar/SubMenuTop';
-import SubMenuTree from './cellSidebar/SubMenuTree';
+import Logo from './cellSidebar/Logo'
+import MainMenu from './cellSidebar/MainMenu'
+import SubMenuTree from './cellSidebar/SubMenuTree'
 
 export default {
-  components: { Logo, MainMenu, SubMenuTop, SubMenuTree },
+  components: { Logo, MainMenu, SubMenuTree },
   name: 'SideBar',
   data() {
-    return {};
-  },
-};
+    return {}
+  }
+}
 </script>
 
 <style lang="less" scoped>
@@ -30,7 +29,7 @@ export default {
 .sidebar {
   z-index: @sidebarZIndex;
   position: fixed;
-  width: 224px;
+  width: @sidebarWidth;
   height: 100%;
   font-size: 0px;
   top: 0;
@@ -41,19 +40,31 @@ export default {
 
   &__left {
     float: left;
-    width: @sidebarLeftWidth;
+    width: @mainMenuWidth;
     height: 100%;
-    background-color: #f8f8f8;
-    border-right: 1px solid #e8e8e8;
+    background-color: @mainMenuBgColor;
+    border-right: 1px solid @sideBarBorderColor;
+    box-sizing: border-box;
   }
   &__right {
     position: absolute;
-    left: 96px;
+    left: @mainMenuWidth;
     top: 0;
-    width: @sidebarRightWidth;
+    width: @subMenuWidth;
     height: 100%;
-    background-color: white;
-    border-right: 1px solid #e8e8e8;
+    background-color: @subMenuBgColor;
+    box-sizing: border-box;
+
+    .submenu-tree-wrapper--hover {
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: @subMenuBgColor;
+      display: inherit;
+    }
   }
 }
 </style>

@@ -1,19 +1,22 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-import setting from './modules/setting';
+import layout from './modules/layout'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
-let _store;
+let _store
 
 export function makeStore(storeConfig = {}) {
-  if (storeConfig.modules) {
-    storeConfig.modules.setting = setting;
+  if (!storeConfig.modules) {
+    storeConfig.modules = {}
   }
-  return new Vuex.Store(storeConfig);
+  storeConfig.modules.VafLayout = layout
+
+  _store = new Vuex.Store(storeConfig)
+  return _store
 }
 
 export function getStore() {
-  return _store;
+  return _store
 }

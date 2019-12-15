@@ -19,28 +19,28 @@
 </template>
 
 <script>
-import globalData from '@/helper/globalData';
+import globalData from '@/helper/globalData'
 
-let _routes = [];
+let _routes = []
 
 export default {
   name: 'MainMenu',
   data() {
     return {
       list: [],
-      selectedName: '',
-    };
+      selectedName: ''
+    }
   },
   watch: {
     $route(next) {
-      this.selectedName = next.matched[0].name;
-    },
+      this.selectedName = next.matched[0].name
+    }
   },
   created() {
-    const routeConfig = globalData.get('routeConfig', {});
-    _routes = routeConfig.routes || [];
+    const routeConfig = globalData.get('routeConfig', {})
+    _routes = routeConfig.routes || []
 
-    this.selectedName = this.$route.matched[0].name;
+    this.selectedName = this.$route.matched[0].name
     this.list = _routes
       .filter(({ hidden }) => !hidden)
       .map(({ name, path, hidden, meta }) => {
@@ -48,30 +48,28 @@ export default {
           name,
           path,
           label: meta.name || meta.title,
-          icon: meta.fontIcon,
-        };
-      });
+          icon: meta.fontIcon
+        }
+      })
   },
   methods: {
-    handleClick(item) {
-      this.$emit('click');
-      this.selectedName = item.name;
-      this.$router.push(item.path);
+    handleClick({ name, path }) {
+      this.$emit('click')
+      this.selectedName = name
+      this.$router.push(path)
     },
-    handleMouseEnter(item) {
-      const { name } = item;
+    handleMouseEnter({ name }) {
       if (this.selectedName !== name) {
-        this.$emit('enter', name);
+        this.$emit('enter', name)
       }
     },
-    handleMouseLeave(item) {
-      const { name } = item;
+    handleMouseLeave({ name }) {
       if (this.selectedName !== name) {
-        this.$emit('leave', name);
+        this.$emit('leave', name)
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
@@ -92,26 +90,26 @@ export default {
   }
 }
 
-.main-menu-item /deep/ {
+.main-menu-item {
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 16px;
-  height: 40px;
-  line-height: 40px;
+  padding: 0 @mainMenuPadding;
+  height: @mainMenuHeight;
+  line-height: @mainMenuHeight;
   font-weight: 700;
-  color: rgb(102, 102, 102);
+  color: @mainMenuTextColor;
 
   .main-menu-icon {
     flex-shrink: 0;
-    font-size: 16px;
-    color: #999;
+    font-size: @mainMenuIconFontSize;
+    color: @mainMenuIconColor;
   }
 
   .main-menu-label {
-    margin-left: 10px;
-    font-size: 14px;
+    margin-left: @mainMenuTextMarginLeft;
+    font-size: @mainMenuTextFontSize;
     overflow: hidden;
     word-wrap: normal;
     white-space: nowrap;
@@ -119,20 +117,18 @@ export default {
   }
 }
 
-.main-menu-item:hover {
-  background: #f3f3f3;
-}
-
 .main-menu-item {
-  &.active,
   &:hover {
+    background: @mainMenuTextColorHover;
     .main-menu-icon {
-      color: #fd5149;
+      color: @mainMenuIconColorHover;
     }
   }
-
   &.active {
-    color: #fd5149;
+    color: @mainMenuTextColorActive;
+    .main-menu-icon {
+      color: @mainMenuIconColorActive;
+    }
   }
 }
 
